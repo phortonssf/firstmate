@@ -138,9 +138,9 @@ def never_send_hit(strings):
         lines = [norm(line) for line in path.read_text(encoding="utf-8").splitlines()]
     except (OSError, ValueError):
         return "dispatch-never-send is not a readable regular file; nothing sent"
-    haystack = [norm(text).lower() for text in strings]
+    haystack = [norm(text).casefold() for text in strings]
     for number, value in enumerate(lines, 1):
-        if value and not value.startswith("#") and any(value.lower() in text for text in haystack):
+        if value and not value.startswith("#") and any(value.casefold() in text for text in haystack):
             return f"request text matches dispatch-never-send line {number}; nothing sent"
     return None
 

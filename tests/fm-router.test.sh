@@ -155,8 +155,14 @@ def withheld(text, listed, label):
     assert value['task_class'] == 'bugfix' and value['status'] == 'clear', label
     assert not request_file.exists(), label
     assert 'ledger' not in (result.stdout + result.stderr).lower(), label
+    return result
 withheld('fix the Acme\nLEDGER bug', '# comment\n\n  acme   ledger \n', 'task text, normalized and case-insensitive')
 withheld('fix the bug', 'package.json\n', 'repository fact strings are checked too')
+unicode_result = withheld('fix s bug', 'ſ\n', 'Unicode long-s protected value folds to ASCII s')
+assert 'ſ' not in unicode_result.stdout + unicode_result.stderr
+withheld('fix scode bug', 'ſcode\n', 'Unicode folding applies to protected words')
+withheld('fix ſcode bug', 'scode\n', 'Unicode folding applies to outgoing request text')
+withheld('fix STRASSE bug', 'Straße\n', 'Unicode multi-character case fold remains conservative')
 never.unlink()
 never.mkdir()
 withheld('fix the bug', None, 'unreadable list')
