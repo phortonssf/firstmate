@@ -1,0 +1,40 @@
+{
+  "status": "clear",
+  "home": "/tmp/fm-lab.doOhLL",
+  "project": "/home/pedro/Work/firstmate-validation/01M3XMD59EW5T9VMPZ7VK5MHQ9",
+  "task_class": "mechanical",
+  "repository": {
+    "name": "01M3XMD59EW5T9VMPZ7VK5MHQ9",
+    "branch": null,
+    "commit": "eba3281fb7ce84dbd3d2c03b57d483b5ef521633",
+    "worktree": "/home/pedro/Work/firstmate-validation/01M3XMD59EW5T9VMPZ7VK5MHQ9",
+    "git_common_dir": "/home/pedro/.no-mistakes/repos/ea7dccb6b083.git",
+    "tracked_files_sampled": 660,
+    "manifests": [
+      ".opencode/plugins/package.json",
+      ".tasks.toml"
+    ],
+    "extensions": {
+      ".sh": 452,
+      ".md": 112,
+      ".ts": 29,
+      ".json": 16,
+      ".py": 11,
+      ".mjs": 8,
+      ".toon": 7,
+      ".js": 6
+    },
+    "dirty": false,
+    "inspection_truncated": false
+  },
+  "source": "static-or-finite-class",
+  "profile": {
+    "harness": "pi"
+  },
+  "reason": "finite classification advisory",
+  "evidence": {
+    "status": "off",
+    "reason": "FASTINO_API_KEY absent"
+  },
+  "permission_posture": "Pi existing tool and extension permission policy"
+}

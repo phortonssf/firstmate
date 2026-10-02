@@ -1,0 +1,22 @@
+[
+  {
+    "session": "bad1",
+    "home": "/tmp/fm-lab.doOhLL",
+    "error": "damaged routing evidence at /tmp/fm-lab.doOhLL/data/bad1/route.json: non-finite JSON",
+    "liveness": "no launch record; inspect preserved queued task"
+  },
+  {
+    "session": "bad2",
+    "home": "/tmp/fm-lab.doOhLL",
+    "error": "damaged routing evidence at /tmp/fm-lab.doOhLL/data/bad2/route.json: Unterminated string starting at: line 1 column 2 (char 1)",
+    "liveness": "no launch record; inspect preserved queued task"
+  },
+  {
+    "session": "good",
+    "home": "/tmp/fm-lab.doOhLL",
+    "routing": {
+      "ok": 1
+    },
+    "liveness": "no launch record; inspect preserved queued task"
+  }
+]
