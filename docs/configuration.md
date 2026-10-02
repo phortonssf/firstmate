@@ -1147,6 +1147,9 @@ Omitting the continuation id is accepted only when exactly one recorded current-
 Continuing uses the exact recorded task through the existing control plane, with an explicit progress note or saved `data/<id>/progress.md`.
 Native session continuation remains limited to combinations the launch owner already verifies; other combinations use the saved brief, worktree and progress note.
 A durable record alone is reported with unknown process liveness.
+`fm status <id>` also reports a task that has only `route.json`, such as one whose brief step failed, with the same entry `fm sessions` lists.
+The `fm` Fastino classifier applies the never-send list to its whole request before sending, and a withheld request uses the local finite classification.
+Routing evidence's `dirty` is true for tracked changes and untracked, non-ignored files.
 A damaged or non-finite `route.json` is reported as an error on that session entry only; it is left untouched and other sessions remain listable.
 Doctor is read-only: it reports executables, configuration validation, routing key presence, account pins and backend capability limits, keeps unproven authentication unknown, and performs no repairs or installations.
 
@@ -1193,7 +1196,7 @@ Example Client Ltd
 ```
 
 Before the request is sent, every string in it is checked: the project name, the task text, each rule's `when`, and the fixed question text.
-A match stops the request: the resolver behaves exactly as when it is off, printing one `dispatch-resolve: off (...; nothing sent)` line on stderr and nothing on stdout, making no network or quota call, and exiting 0, so firstmate dispatches through its existing intake.
+A match stops the request: the resolver behaves exactly as when it is off, printing one `dispatch-resolve: off (...; nothing sent)` line on stderr and nothing on stdout (`--json` prints one `{"status":"off"}` object), making no network or quota call, and exiting 0, so firstmate dispatches through its existing intake.
 A list that is present but not a readable regular file also stops the request the same way rather than sending unchecked text.
 That one diagnostic names the list line number at most and never prints the listed value or the matching text.
 

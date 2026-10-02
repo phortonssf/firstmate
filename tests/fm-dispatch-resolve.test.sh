@@ -327,6 +327,11 @@ mkdir "$NEVER_SEND"
 reset_log
 TYPESAFE_API_KEY=$KEY run code out err "$PRIVATE_BRIEF" --project pager
 expect_withheld "a directory at the list path" "$NEVER_SEND is not a readable regular file"
+reset_log
+TYPESAFE_API_KEY=$KEY run code out err "$PRIVATE_BRIEF" --project pager --json
+expect_code 0 "$code" "a withheld --json request exits 0"
+assert_equals 'off' "$(jq -r .status <<<"$out")" "a withheld --json request prints structured off"
+assert_absent "$LOG/argv" "a withheld --json request never calls curl"
 rmdir "$NEVER_SEND"
 ln -s "$TMP_ROOT/missing-never-send" "$NEVER_SEND"
 reset_log

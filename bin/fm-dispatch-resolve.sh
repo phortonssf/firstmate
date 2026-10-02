@@ -52,8 +52,9 @@
 #   whitespace, on both sides, treated as one space. A match, or a list that
 #   is not a readable regular file, prints one
 #   "dispatch-resolve: off (...; nothing sent)" line on stderr naming at most
-#   the list line number, never its value, prints nothing on stdout, and exits
-#   0 with no network or quota call, exactly like the absent-key off path.
+#   the list line number, never its value, prints nothing on stdout (or, with
+#   --json, one {"status":"off"} object), and exits 0 with no network or quota
+#   call, exactly like the absent-key off path.
 #
 # Output (stdout, TOON-style block):
 #   dispatch-resolve:
@@ -307,6 +308,7 @@ trap 'rm -f "$RULES" "$RESP_FILE" "$QUOTA" "$TASK_TEXT" "$SEND_TEXT"' EXIT
 
 never_send_off() {
   echo "dispatch-resolve: off ($1; nothing sent)" >&2
+  [ "$JSON_OUTPUT" = 0 ] || jq -cn --arg reason "$1; nothing sent" '{status:"off",reason:$reason}'
   exit 0
 }
 
